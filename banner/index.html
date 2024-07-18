@@ -7,65 +7,137 @@
 	<!-- <link rel="stylesheet" href="css/magnific-popup.css"> -->
 	<!-- <link rel="stylesheet" href="css/animate.min.css"> -->
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
 <body>
+        <script type="text/javascript" src="js/caman.full.js"></script>
+		
 	<!-- Page Preloder -->
-	<div id="preloder" style="display: none;">
-		<div class="loader" style="display: none;"></div>
+	<div id="preloder" class="d-none">
+		<div class="loader d-none"></div>
 	</div>
 
-	<!-- ==== Intro Section Start ==== -->
-	<section class="intro-section fix" id="home">
-		<div class="overlay-div">
-			<h1> NRNA CHIBA FESTIVAL 2024 </h1>
-			  <input type="file" accept="image/*" onchange="loadFile(event)" id="file" class="inputfile" />
-			<label for="file">Choose Profile Image</label>
-		
-			<img id="overlay-img" src="plain.png"/>
-			<button class="download-btn" onclick="downloadImage()">Download Image</button>
+	<!-- Navigation Menu -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container">
+			<a class="navbar-brand" href="https://nrnachiba.com">
+				<img src="logo.png" alt="Logo" style="height: 50px;">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="https://nrnachiba.com">Home <span class="sr-only">(current)</span></a>
+					</li>
+					
+				</ul>
+			</div>
 		</div>
+	</nav>
+
+	<!-- ==== Intro Section Start ==== -->
+	<section class="intro-section fix" id="home" style="margin-top: 20px;">
+		<div class="overlay-div">
+			<h3> Chiba Festival Profile Design</h3>
+			  <input type="file" accept="image/*" onchange="loadFile(event)" id="file" class="inputfile" />
+			<label for="file">Choose Profile Image</label>		
+			<img id="overlay-img" src="plain.png" />
+			<div id="spinner" class="spinner-border" role="status" style="display: none;margin-top: 50px;margin-left: 150px;">
+			</div>
+			<h4  id="guide" style="display: none;margin-top: 50px;margin-left: 20px;" >Image Creating ...</h4>
+			
+			<button  id="downloadBtn" class="btn btn-success download-btn text-center" style="display: none; margin-top: -15px" onclick="downloadImage()">Download Image</button>
+
+		</div>
+
+	</section>
 			<script>
-			  var loadFile = function(event) {
+
+				document.getElementById('overlay-img').addEventListener('click', function() {
+					document.getElementById('file').click();
+				});	
+				
+				function sleep(ms) {
+					return new Promise(resolve => setTimeout(resolve, ms));
+				}
+
+			var loadFile = function(event) {
 				var reader = new FileReader();
 				reader.onload = function() {
+				  document.getElementById('spinner').style.display = 'block';
+				  document.getElementById('guide').style.display = 'block';
+				  document.getElementById('overlay-img').style.display = 'none';
 				  createOverlay(reader.result);
+				  sleep(2000).then(() => {
+					document.getElementById('spinner').style.display = 'none';
+					document.getElementById('guide').style.display = 'none';
+				    document.getElementById('overlay-img').style.display = 'block';
+					document.getElementById('downloadBtn').style.removeProperty('display');
+				   });  
+
 				};
 				reader.readAsDataURL(event.target.files[0]);
 			  };
 		
 			  var createOverlay = function(uploadImage) {
-				  var baseImg = uploadImage;
-				  Caman("#overlay-img", function () {
+				var baseImg = uploadImage;
+				Caman("#overlay-img", function () {
 					this.brightness(5).render();
 					this.newLayer(function() {
 						this.setBlendingMode("normal");
 						this.opacity(100);
 						this.overlayImage(baseImg);
-					  });
-		
-					  this.newLayer(function() {
+						});
+
+						this.newLayer(function() {
 						this.setBlendingMode("normal");
 						this.opacity(100);
 						this.overlayImage('overlay.png');
-					  });
-		
-					  $('#overlay-img').removeAttr('style');
+						});
+					
+						$('#overlay-img').removeAttr('style');
+						document.getElementById('overlay-img').style.display = 'none';
 				});
-		
-				$('#overlay-img').removeAttr('style');
-			  };
-		
+
+				
+
+				
+			};
+
 			  var downloadImage = function() {
-				var link = document.createElement('a');
-				link.download = 'overlay-image.png';
-				link.href = document.getElementById('overlay-img').toDataURL('image/png');
-				link.click();
+			    const fileName = 'overlay-image.png';
+			    const uri = document.getElementById('overlay-img').toDataURL('image/png');
+
+			    // IE support check for download attribute
+			    if (window.navigator.msSaveOrOpenBlob) {
+			        let xhr = new XMLHttpRequest();
+			        xhr.open('GET', uri);
+			        xhr.responseType = 'blob';
+			        xhr.onloadend = () => {
+			            if (xhr.status !== 200) {
+			                return false;
+			            }
+			            window.navigator.msSaveOrOpenBlob(xhr.response, fileName);
+			        };
+			        xhr.send();
+			    } else {
+			        let link = document.createElement('a');
+			        link.href = uri;
+			        link.download = fileName;
+			        document.body.appendChild(link);
+			        link.click();
+			        document.body.removeChild(link);
+			    }
 			  };
 			  
 			</script>		
+			<div class="madeBy">Made by <a href="#" target="_blank">Ramesh Giri</a> using <a href="#" target="_blank">CamanJS</a></div>
 
-	</section>
+
 
 	<!--====== Javascripts & Jquery ======-->	
 	<script src="js/jquery-2.1.4.min.js"></script>
@@ -74,3 +146,4 @@
 	<script src="js/main.js"></script>
 
 </body></html>
+

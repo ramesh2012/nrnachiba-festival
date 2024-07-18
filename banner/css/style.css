@@ -30,7 +30,7 @@
 		text-transform: uppercase;
 		  vertical-align: middle;
 		color: white;
-		background-color: #e62b1e;
+		background-color: #027bff;
 		-webkit-tap-highlight-color: transparent;
 	}
 
@@ -56,6 +56,26 @@
 
 	.madeBy {
 		text-align:center;
-		font-size: .7em;
 		margin: 50px auto 10px auto;
+	}
+
+	#overlay-img {
+		width: 100%;
+		max-width: 350px;
+		height: auto;
+		border: 1px solid #ccc;
+	  }
+
+	  .bg-light {
+		background-color: #e4e7ea !important;
+	}
+
+	.sketch {
+		display: none !important;
+	}
+
+	.spinner-border {
+		width: 6rem !important;
+		height: 6rem !important;
+
 	}
