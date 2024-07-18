@@ -58,6 +58,23 @@
 
 	</section>
 			<script>
+				function isPc() {
+					const userAgent = navigator.userAgent;
+					const mobileKeywords = [
+						'Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry',
+						'Windows Phone', 'Opera Mini', 'IEMobile', 'Mobile'
+					];
+
+					// Check for common mobile keywords
+					for (let keyword of mobileKeywords) {
+						if (userAgent.includes(keyword)) {
+						return false; // Found a mobile keyword, hence not a PC
+						}
+					}
+
+					return true; // No mobile keywords found, hence it's a PC
+				}
+
 
 				document.getElementById('overlay-img').addEventListener('click', function() {
 					document.getElementById('file').click();
@@ -70,7 +87,10 @@
 			var loadFile = function(event) {
 				var reader = new FileReader();
 				reader.onload = function() {
-				  document.getElementById('spinner').style.display = 'block';
+				    // is PC
+					if (!isPc()) {
+					 document.getElementById('spinner').style.display = 'block';
+					} 
 				  document.getElementById('guide').style.display = 'block';
 				  document.getElementById('overlay-img').style.display = 'none';
 				  createOverlay(reader.result);
@@ -137,7 +157,7 @@
 			  };
 			  
 			</script>		
-			<div class="madeBy">Made by <a href="#" target="_blank">Ramesh Giri</a> using <a href="#" target="_blank">CamanJS</a></div>
+			<div class="madeBy">Made by <a href="#" target="_blank">MRs ANJU CHHETRI  </a> using <a href="#" target="_blank">CamanJS</a></div>
 
 
 
