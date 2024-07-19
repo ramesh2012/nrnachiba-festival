@@ -128,6 +128,8 @@ var loadFile = function(event) {
 		
 			document.getElementById('overlay-img').removeAttribute('style');
 			document.getElementById('downloadBtn').style.removeProperty('display');
+			window.scrollTo(0, document.body.scrollHeight);
+
 			// document.getElementById('overlay-img').style.display = 'none';
 	});
 
