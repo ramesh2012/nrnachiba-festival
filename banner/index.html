@@ -1,193 +1,167 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="ja">
 
-	<!-- Site Info -->
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NRNA Chiba Festival Design Tool</title>
-    
-    <!-- Open Graph meta tags -->
-    <meta property="og:title" content="NRNA Chiba Festival Design Tool">
-    <meta property="og:description" content="यो NRNA चिबा को फेस्टिवल को डिजाइन बनाउने टुल हो। तपाईंले आफ्नो मनपर्ने फोटो चयन गरेर फेस्टिवल ब्यानर बनाउन सक्नुहुन्छ र फेस्टिवललाई सफल बनाउनको लागि अनुरोध गर्दछौं।">
-    <meta property="og:image" content="https://nrnachiba.com/design/plain.png">
-    <meta property="og:url" content="https://example.com/your-page">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card meta tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="NRNA Chiba Festival Design Tool">
-    <meta name="twitter:description" content="यो NRNA चिबा को फेस्टिवल को डिजाइन बनाउने टुल हो। तपाईंले आफ्नो मनपर्ने फोटो चयन गरेर फेस्टिवल ब्यानर बनाउन सक्नुहुन्छ र फेस्टिवललाई सफल बनाउनको लागि अनुरोध गर्दछौं।">
-    <meta name="twitter:image" content="https://nrnachiba.com/design/plain.png">
-    <meta name="twitter:url" content="https://example.com/your-page">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NRNA CHIBA FESTIVAL 2024</title>
 
-    <!-- Other meta tags -->
-    <meta name="description" content="यो NRNA चिबा को फेस्टिवल को डिजाइन बनाउने टुल हो। तपाईंले आफ्नो मनपर्ने फोटो चयन गरेर फेस्टिवल ब्यानर बनाउन सक्नुहुन्छ र फेस्टिवललाई सफल बनाउनको लागि अनुरोध गर्दछौं।">
+    <!-- Bootstrap CSS -->
+    <link href="css/style.css" rel="stylesheet" />
 
-    <!-- Link to the thumbnail image -->
-    <link rel="image_src" href="https://nrnachiba.com/design/plain.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
 
-	<!-- Stylesheets -->
-	<!-- <link rel="stylesheet" href="css/magnific-popup.css"> -->
-	<!-- <link rel="stylesheet" href="css/animate.min.css"> -->
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 
 </head>
+<script type="text/javascript" src="js/caman.full.js"></script>
+
 <body>
-        <script type="text/javascript" src="js/caman.full.js"></script>
-		
-	<!-- Page Preloder -->
-	<div id="preloder" class="d-none">
-		<div class="loader d-none"></div>
-	</div>
+    <main>
+        <header>
+            <div class="logo">
+                <img src="logo.png" class="" />
+               
+            </div>
+        </header>
 
-	<!-- Navigation Menu -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<div class="container">
-			<a class="navbar-brand" href="https://nrnachiba.com">
-				<img src="logo.png" alt="Logo" style="height: 50px;">
-			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="https://nrnachiba.com">Home <span class="sr-only">(current)</span></a>
-					</li>
-					
-				</ul>
-			</div>
-		</div>
-	</nav>
 
-	<!-- ==== Intro Section Start ==== -->
-	<section class="intro-section fix" id="home" style="margin-top: 20px;">
-		
-		<div class="overlay-div">
-			<h3> Chiba Festival Profile Design</h3>
+        <h1>NRNA CHIBA FESTIVAL 2024</h1>
+        <div class="description">
+        यो NRNA चिबा को फेस्टिवल को डिजाइन बनाउने टुल हो। तपाईंले आफ्नो मनपर्ने फोटो राखेर चिबा फेस्टिवलको ब्यानर बनाउन
+        सक्नुहुन्छ र फेस्टिवललाई सफल बनाउनको लागि अनुरोध गर्दछौं।
+        </div>
+        <div class="upload-img">
 			
-			<input type="file" accept="image/*" onchange="loadFile(event)" id="file" class="inputfile" />
-			<label for="file" style="margin-top: 10px;">Choose Profile Image</label>		
+            <input type="file" accept="image/*" onchange="loadFile(event)" id="file" class="inputfile" />
+            <label for="file">Choose Profile Image</label>
+        </div>
+
+        <div class="center photo-frame">
+			<div id="spinner" class="spinner-border" role="status" style="display: none;">
+			</div>
 			<img id="overlay-img" src="plain.png" />
-			<div id="spinner" class="spinner-border" role="status" style="display: none;margin-top: 50px;margin-left: 150px;">
-			</div>
-			<h4  id="guide" style="display: none;margin-top: 50px;margin-left: 20px;" >Image Creating ...</h4>
-			
-			<button  id="downloadBtn" class="btn btn-success download-btn text-center" style="display: none; margin-top: -15px" onclick="downloadImage()">Download Image</button>
+            
+        </div>
+        </div>
 
-		</div>
+    
 
-	</section>
-			<script>
-				function isPc() {
-					const userAgent = navigator.userAgent;
-					const mobileKeywords = [
-						'Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry',
-						'Windows Phone', 'Opera Mini', 'IEMobile', 'Mobile'
-					];
+        <div class="center">
 
-					// Check for common mobile keywords
-					for (let keyword of mobileKeywords) {
-						if (userAgent.includes(keyword)) {
-						return false; // Found a mobile keyword, hence not a PC
-						}
-					}
+            <button id="downloadBtn" class="btn blue-btn"  style="display: none; " onclick="downloadImage()">Download Image</button>
+        </div>
 
-					return true; // No mobile keywords found, hence it's a PC
-				}
+		<div class="madeBy">Made by <a href="#" target="_blank">RAMESH GIRI</a> using <a href="#" target="_blank">CamanJS</a></div>
+    </main>
+
+</body>
+<script>
+	function isPc() {
+		const userAgent = navigator.userAgent;
+		const mobileKeywords = [
+			'Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry',
+			'Windows Phone', 'Opera Mini', 'IEMobile', 'Mobile'
+		];
+
+		// Check for common mobile keywords
+		for (let keyword of mobileKeywords) {
+			if (userAgent.includes(keyword)) {
+			return false; // Found a mobile keyword, hence not a PC
+			}
+		}
+
+		return true; // No mobile keywords found, hence it's a PC
+	}
 
 
-				document.getElementById('overlay-img').addEventListener('click', function() {
-					document.getElementById('file').click();
-				});	
-				
-				function sleep(ms) {
-					return new Promise(resolve => setTimeout(resolve, ms));
-				}
+	document.getElementById('overlay-img').addEventListener('click', function() {
+		document.getElementById('file').click();
+	});	
+	
+	function sleep(ms) {
+		return new Promise(resolve => setTimeout(resolve, ms));
+	}
 
-			var loadFile = function(event) {
-				var reader = new FileReader();
-				reader.onload = function() {
-				    // is PC
-					if (!isPc()) {
-					 document.getElementById('spinner').style.display = 'block';
-					} 
-				  document.getElementById('guide').style.display = 'block';
-				  document.getElementById('overlay-img').style.display = 'none';
-				  createOverlay(reader.result);
-				  sleep(2000).then(() => {
-					document.getElementById('spinner').style.display = 'none';
-					document.getElementById('guide').style.display = 'none';
-				    document.getElementById('overlay-img').style.display = 'block';
-					document.getElementById('downloadBtn').style.removeProperty('display');
-				   });  
+var loadFile = function(event) {
+	var reader = new FileReader();
+	reader.onload = function() {
+		document.getElementById('spinner').style.display = 'block';
+		// is PC
+		if (!isPc()) {
+		 document.getElementById('spinner').style.display = 'block';
+		} 
+	//   document.getElementById('guide').style.display = 'block';
+	//   document.getElementById('overlay-img').style.display = 'none';
+	  createOverlay(reader.result);
+	  sleep(2000).then(() => {
+		document.getElementById('spinner').style.display = 'none';
+		// document.getElementById('guide').style.display = 'none';
+		// document.getElementById('overlay-img').style.display = 'block';
+		document.getElementById('downloadBtn').style.removeProperty('display');
+	   });  
 
-				};
-				reader.readAsDataURL(event.target.files[0]);
-			  };
+	};
+	reader.readAsDataURL(event.target.files[0]);
+  };
+
+  var createOverlay = function(uploadImage) {
+	var baseImg = uploadImage;
+	document.getElementById('overlay-img').removeAttribute('style');
+	Caman("#overlay-img", function () {
+		document.getElementById('overlay-img').removeAttribute('style');
+		this.brightness(5).render();
+		this.newLayer(function() {
+			this.setBlendingMode("normal");
+			this.opacity(100);
+			this.overlayImage(baseImg);
+			});
+
+			this.newLayer(function() {
+			this.setBlendingMode("normal");
+			this.opacity(100);
+			this.overlayImage('overlay.png');
+			});
 		
-			  var createOverlay = function(uploadImage) {
-				var baseImg = uploadImage;
-				Caman("#overlay-img", function () {
-					this.brightness(5).render();
-					this.newLayer(function() {
-						this.setBlendingMode("normal");
-						this.opacity(100);
-						this.overlayImage(baseImg);
-						});
+			document.getElementById('overlay-img').removeAttribute('style');
+			document.getElementById('downloadBtn').style.removeProperty('display');
+			// document.getElementById('overlay-img').style.display = 'none';
+	});
 
-						this.newLayer(function() {
-						this.setBlendingMode("normal");
-						this.opacity(100);
-						this.overlayImage('overlay.png');
-						});
-					
-						$('#overlay-img').removeAttr('style');
-						document.getElementById('overlay-img').style.display = 'none';
-				});
+	
 
-				
+	
+};
 
-				
-			};
+  var downloadImage = function() {
+	const fileName = 'overlay-image.png';
+	const uri = document.getElementById('overlay-img').toDataURL('image/png');
 
-			  var downloadImage = function() {
-			    const fileName = 'overlay-image.png';
-			    const uri = document.getElementById('overlay-img').toDataURL('image/png');
+	// IE support check for download attribute
+	if (window.navigator.msSaveOrOpenBlob) {
+		let xhr = new XMLHttpRequest();
+		xhr.open('GET', uri);
+		xhr.responseType = 'blob';
+		xhr.onloadend = () => {
+			if (xhr.status !== 200) {
+				return false;
+			}
+			window.navigator.msSaveOrOpenBlob(xhr.response, fileName);
+		};
+		xhr.send();
+	} else {
+		let link = document.createElement('a');
+		link.href = uri;
+		link.download = fileName;
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+	}
+  };
+  
+</script>
 
-			    // IE support check for download attribute
-			    if (window.navigator.msSaveOrOpenBlob) {
-			        let xhr = new XMLHttpRequest();
-			        xhr.open('GET', uri);
-			        xhr.responseType = 'blob';
-			        xhr.onloadend = () => {
-			            if (xhr.status !== 200) {
-			                return false;
-			            }
-			            window.navigator.msSaveOrOpenBlob(xhr.response, fileName);
-			        };
-			        xhr.send();
-			    } else {
-			        let link = document.createElement('a');
-			        link.href = uri;
-			        link.download = fileName;
-			        document.body.appendChild(link);
-			        link.click();
-			        document.body.removeChild(link);
-			    }
-			  };
-			  
-			</script>		
-			<div class="madeBy">Made by <a href="#" target="_blank">RAMESH GIRI</a> using <a href="#" target="_blank">CamanJS</a></div>
-
-
-
-	<!--====== Javascripts & Jquery ======-->	
-	<script src="js/jquery-2.1.4.min.js"></script>
-	<script src="js/plugin.js"></script>
-	<script src="js/init-round.js"></script>
-	<script src="js/main.js"></script>
-
-</body></html>
-
+</html>
