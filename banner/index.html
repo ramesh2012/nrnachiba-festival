@@ -62,8 +62,6 @@
 <script>
 	function checkSNSBrowser() {
 		var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-		// List of SNS user agents to check
 		var snsBrowsers = [
 			/FBAV/i,  // Facebook in-app browser
 			/Instagram/i,  // Instagram in-app browser
@@ -73,15 +71,11 @@
 			/Messenger/i,  // Messenger in-app browser
 			/FBAN\/MessengerForiOS/i,  // Messenger in-app browser for iOS
 		];
-		// Check if userAgent matches any of the SNS browsers
-		var isSNSBrowser = snsBrowsers.some(function(browser) {
+		return snsBrowsers.some(function(browser) {
 			return userAgent.match(browser);
 		});
-
-		if (isSNSBrowser) {
-			alert("This feature is not supported in the current browser.");
-		}
 	}
+	
 	function isPc() {
 		const userAgent = navigator.userAgent;
 		const mobileKeywords = [
