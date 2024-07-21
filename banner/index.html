@@ -60,6 +60,27 @@
 
 </body>
 <script>
+	function checkSNSBrowser() {
+		var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+		// List of SNS user agents to check
+		var snsBrowsers = [
+			/FBAV/i,  // Facebook in-app browser
+			/Instagram/i,  // Instagram in-app browser
+			/Twitter/i,  // Twitter in-app browser
+			/Line/i,  // Line in-app browser
+			/Snapchat/i,  // Snapchat in-app browser
+		];
+
+		// Check if userAgent matches any of the SNS browsers
+		var isSNSBrowser = snsBrowsers.some(function(browser) {
+			return userAgent.match(browser);
+		});
+
+		if (isSNSBrowser) {
+			alert("This feature is not supported in the current browser.");
+		}
+	}
 	function isPc() {
 		const userAgent = navigator.userAgent;
 		const mobileKeywords = [
@@ -139,6 +160,12 @@ var loadFile = function(event) {
 };
 
   var downloadImage = function() {
+	if (checkSNSBrowser()) {
+		alert(`Download बटन खिचे पनि फोटो डाउन्लोड भएन भने तपाईंले फेसबुकबाट या म्यासेन्जरबाट URL खोलेराख्नुभएको हुन सक्छ।
+            त्यहाँबाट डाउनलोड नहुने हुँदा Safari या Chrome बाट खोल्नुहोस्।
+            Safari मा यो वेबसाइट खोल्नको लागि तलको बारमा भएको शेयर बटनमा क्लिक गरेर [Open in Safari]मा क्लिक गर्न
+            सक्नुहुन्छ या URL कपी गरेर पेस्ट गरेर खोल्न पनि सक्नुहुन्छ।`);
+	}
 	const fileName = 'overlay-image.png';
 	const uri = document.getElementById('overlay-img').toDataURL('image/png');
 
