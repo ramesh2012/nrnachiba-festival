@@ -70,8 +70,9 @@
 			/Twitter/i,  // Twitter in-app browser
 			/Line/i,  // Line in-app browser
 			/Snapchat/i,  // Snapchat in-app browser
+			/Messenger/i,  // Messenger in-app browser
+			/FBAN\/MessengerForiOS/i,  // Messenger in-app browser for iOS
 		];
-
 		// Check if userAgent matches any of the SNS browsers
 		var isSNSBrowser = snsBrowsers.some(function(browser) {
 			return userAgent.match(browser);
