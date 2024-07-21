@@ -29,7 +29,7 @@
         </header>
 
 
-        <h1>NRNA CHIBA FESTIVAL 2024</h1>
+        <h1>एनआरएनए चिबा नेपाल फेस्टिवल २०२४</h1>
         <div class="description">
         यो NRNA चिबा को फेस्टिवल को डिजाइन बनाउने टुल हो। तपाईंले आफ्नो मनपर्ने फोटो राखेर चिबा फेस्टिवलको ब्यानर बनाउन
         सक्नुहुन्छ र फेस्टिवललाई सफल बनाउनको लागि अनुरोध गर्दछौं।
@@ -37,7 +37,7 @@
         <div class="upload-img">
 			
             <input type="file" accept="image/*" onchange="loadFile(event)" id="file" class="inputfile" />
-            <label for="file">Choose Profile Image</label>
+            <label for="file">फोटो छान्नुहोस्</label>
         </div>
 
         <div class="center photo-frame">
@@ -52,8 +52,19 @@
 
         <div class="center">
 
-            <button id="downloadBtn" class="btn blue-btn"  style="display: none; " onclick="downloadImage()">Download Image</button>
+            <button id="downloadBtn" class="btn blue-btn"  style="display: none; " onclick="downloadImage()">फोटो डाउनलोड गर्नुहोस्</button>
         </div>
+
+		<section class="company-logo" style="border-bottom: 1px solid rgb(170, 170, 170);">
+			<h1>एनआरएनए चिबा नेपाल फेस्टिवल २०२४ | इभेन्ट सपोर्टर्स</h1>
+			<div class="description info">
+				NRNA चिबा को नेपाल फेस्टिवल २०२४ लाई सफल बनाउन विभिन्न संस्थाबाट हामीलाई सहयोग र सपोर्ट गर्नु भएकोमा हामी एनआरएनए चिबा परिवार धन्यवाद प्रकट गर्दछौं। 
+				यस चिबा नेपाल फेस्टिवल २०२४ लाई सबै जना मिलि भव्य र सभ्यका साथ सफल बनाऔं।
+			</div>
+		   <div class="company-logo-animation">
+		   </div>
+		</section>
+
 
 		<div class="madeBy">Made by <a href="#" target="_blank">RAMESH GIRI</a> using <a href="#" target="_blank">CamanJS</a></div>
     </main>
@@ -75,7 +86,7 @@
 			return userAgent.match(browser);
 		});
 	}
-	
+
 	function isPc() {
 		const userAgent = navigator.userAgent;
 		const mobileKeywords = [
