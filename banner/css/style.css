@@ -235,9 +235,7 @@ input, button {
 }
 
 /* Company Logo */
-section.company-logo {
-    border-bottom: 1px solid #e8e8e8;
-  }
+
 
 section.company-logo ul {
     display: flex;
@@ -251,13 +249,17 @@ section.company-logo ul {
     width: 200px;
   }
   
+  section.company-logo h2 {
+    padding: 0 0 0 40px;
+    }
+
   section.company-logo .company-logo-animation {
     background-color: #fff;
     pointer-events: none;
     background: url(../company-logo.png) repeat-x;
-    background-size: auto 200px;
+    background-size: auto 100px;
     width: 100%;
-    height: 200px;
+    height: 100px;
     animation: loop-slide 50s infinite linear 1s both;
     margin-top: 30px;
   }
