@@ -127,7 +127,7 @@ var loadFile = function(event) {
 	  sleep(2000).then(() => {
 		document.getElementById('spinner').style.display = 'none';
 		// document.getElementById('guide').style.display = 'none';
-		// document.getElementById('overlay-img').style.display = 'block';
+		// document.getElementById('overlay-img').style.display = 'block;
 		document.getElementById('downloadBtn').style.removeProperty('display');
 	   });  
 
@@ -166,35 +166,82 @@ var loadFile = function(event) {
 };
 
   var downloadImage = function() {
-	if (checkSNSBrowser()) {
-		alert(`Download बटन खिचे पनि फोटो डाउन्लोड भएन भने तपाईंले फेसबुकबाट या म्यासेन्जरबाट URL खोलेराख्नुभएको हुन सक्छ।
-            त्यहाँबाट डाउनलोड नहुने हुँदा Safari या Chrome बाट खोल्नुहोस्।
-            Safari मा यो वेबसाइट खोल्नको लागि तलको बारमा भएको शेयर बटनमा क्लिक गरेर [Open in Safari]मा क्लिक गर्न
-            सक्नुहुन्छ या URL कपी गरेर पेस्ट गरेर खोल्न पनि सक्नुहुन्छ।`);
-	}
-	const fileName = 'overlay-image.png';
-	const uri = document.getElementById('overlay-img').toDataURL('image/png');
+	if (isPc()) {
+		const fileName = 'overlay-image.png';
+		const uri = document.getElementById('overlay-img').toDataURL('image/png');
 
-	// IE support check for download attribute
-	if (window.navigator.msSaveOrOpenBlob) {
-		let xhr = new XMLHttpRequest();
-		xhr.open('GET', uri);
-		xhr.responseType = 'blob';
-		xhr.onloadend = () => {
-			if (xhr.status !== 200) {
-				return false;
-			}
-			window.navigator.msSaveOrOpenBlob(xhr.response, fileName);
-		};
-		xhr.send();
+		if (window.navigator.msSaveOrOpenBlob) {
+			let xhr = new XMLHttpRequest();
+			xhr.open('GET', uri);
+			xhr.responseType = 'blob';
+			xhr.onloadend = () => {
+				if (xhr.status !== 200) {
+					return false;
+				}
+				window.navigator.msSaveOrOpenBlob(xhr.response, fileName);
+			};
+			xhr.send();
+		} else {
+			let link = document.createElement('a');
+			link.href = uri;
+			link.download = fileName;
+			document.body.appendChild(link);
+			link.click();
+			document.body.removeChild(link);
+		}
 	} else {
-		let link = document.createElement('a');
-		link.href = uri;
-		link.download = fileName;
-		document.body.appendChild(link);
-		link.click();
-		document.body.removeChild(link);
+
+		const share = () => {
+		  const canvas = document.getElementById("overlay-img");
+		  if (!canvas) {
+		    return;
+		  }
+
+		  const dataURL = canvas.toDataURL("image/png");
+		  const blob = toBlob(dataURL);
+
+		  if (!blob) {
+		    return;
+		  }
+
+		  const imageFile = new File([blob], "shared-image.png", {
+		    type: "image/png",
+		  });
+
+		  navigator.share({
+		      files: [imageFile],
+			  title: "NRNA CHIBA DESIGN",
+		    }).then(() => {
+		    }).catch((error) => {
+		});
+		};
+
+		/**
+		 * Base64形式の画像データをBlobに変換する
+		 * @param {String} base64 Base64形式の画像データ
+		 * @returns {Blob} Blob形式の画像データ
+		 */
+		const toBlob = (base64) => {
+		const decodedData = atob(base64.replace(/^.*,/, ""));
+		const buffers = new Uint8Array(decodedData.length);
+		for (let i = 0; i < decodedData.length; i++) {
+			buffers[i] = decodedData.charCodeAt(i);
+		}
+
+		try {
+			const blob = new Blob([buffers.buffer], {
+			type: "image/png",
+			});
+			return blob;
+		} catch (e) {
+			return null;
+		}
+		};
+
+		// do share
+		share();
 	}
+
   };
   
 </script>
