@@ -204,13 +204,13 @@ var loadFile = function(event) {
 		    return;
 		  }
 
-		  const imageFile = new File([blob], "NRNA CHIBA DESIGN.png", {
+		  const imageFile = new File([blob], "फोटो Save गर्नको लागि तलको [Save Image] क्लिक गर्नु होला.png", {
 		    type: "image/png",
 		  });
 
 		  navigator.share({
 		      files: [imageFile],
-			  title: "NRNA CHIBA DESIGN",
+			  title: "फोटो Save गर्नको लागि तलको [Save Image] क्लिक गर्नु होला",
 		    }).then(() => {
 		    }).catch((error) => {
 		});
