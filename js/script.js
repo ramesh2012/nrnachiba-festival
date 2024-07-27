@@ -1,3 +1,12 @@
+const metas = Array.from(document.getElementsByTagName('meta'))
+const metaTitle = metas.find((m) => m.attributes[0].nodeValue === 'og:title')
+metaTitle.attributes[1].nodeValue = 'NRNA Chiba Festival Design Tool'
+const metaUrl = metas.find((m) => m.attributes[0].nodeValue === 'og:url')
+metaUrl.attributes[1].nodeValue = window.location.href
+const metaImage = metas.find((m) => m.attributes[0].nodeValue === 'og:image')
+metaImage.attributes[1].nodeValue = window.location.href + 'thumbnail.png'
+const metaDescription = metas.find((m) => m.attributes[0].nodeValue === 'og:description')
+metaDescription.attributes[1].nodeValue = 'यो NRNA चिबा को फेस्टिवल को डिजाइन बनाउने टुल हो। तपाईंले आफ्नो मनपर्ने फोटो चयन गरेर फेस्टिवल ब्यानर बनाउन सक्नुहुन्छ र फेस्टिवललाई सफल बनाउनको लागि अनुरोध गर्दछौं।'
 
 function isPc() {
     const userAgent = navigator.userAgent;
