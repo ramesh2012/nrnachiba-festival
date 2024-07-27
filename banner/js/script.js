@@ -28,18 +28,9 @@ function sleep(ms) {
 var loadFile = function(event) {
 var reader = new FileReader();
 reader.onload = function() {
-    document.getElementById('spinner').style.display = 'block';
-    // is PC
-    if (!isPc()) {
-     document.getElementById('spinner').style.display = 'block';
-    } 
-//   document.getElementById('guide').style.display = 'block';
-//   document.getElementById('overlay-img').style.display = 'none';
   createOverlay(reader.result);
   sleep(2000).then(() => {
     document.getElementById('spinner').style.display = 'none';
-    // document.getElementById('guide').style.display = 'none';
-    // document.getElementById('overlay-img').style.display = 'block;
     document.getElementById('downloadBtn').style.removeProperty('display');
    });  
 
