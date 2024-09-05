@@ -35,102 +35,115 @@
 </head>
 
 <body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="NRNA Chiba Festival Logo" />
+        </div>
+    </header>
     <div class="container">
         <h1 class="text-center my-4">एनआरएनए चिबा फेस्टिवल स्टल व्यवस्थापन २०२४</h1>
 
-        <!-- Restaurant List -->
-        <div class="mt-4">
-            <h2>रेष्टुरेन्टको लागि प्राप्त आवेदन सूची</h2>
-            <table class="table table-bordered table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>आवेदक ID</th>
-                        <th>नाम</th>
-                        <th>स्टल नं.</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Newari Kitchen</td>
-                        <td>R-1</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Nawadurga Restaurant</td>
-                        <td>R-2</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>NepHub Restaurant</td>
-                        <td>R-3</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Nan Beats</td>
-                        <td>R-4</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Vintage Dining & Bar</td>
-                        <td>R-5</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>Spice Plaza</td>
-                        <td>R-6</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>Pasa Dining</td>
-                        <td>R-7</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>Bhintuna Dining</td>
-                        <td>R-8</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <div class="row">
+            <!-- Restaurant List -->
+            <div class="col-md-6">
+                <h4>रेष्टुरेन्टको लागि प्राप्त आवेदन सूची</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>आवेदक ID</th>
+                                <th>नाम</th>
+                                <th>स्टल नं.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Newari Kitchen</td>
+                                <td>R-1</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Nawadurga Restaurant</td>
+                                <td>R-2</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>NepHub Restaurant</td>
+                                <td>R-3</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Nan Beats</td>
+                                <td>R-4</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Vintage Dining & Bar</td>
+                                <td>R-5</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Spice Plaza</td>
+                                <td>R-6</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Pasa Dining</td>
+                                <td>R-7</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Bhintuna Dining</td>
+                                <td>R-8</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-        <!-- Application List -->
-        <div class="mt-4">
-            <h2>बुप्पानको लागि प्राप्त आवेदन सूची</h2>
-            <table class="table table-bordered table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>आवेदक ID</th>
-                        <th>नाम</th>
-                        <th>ठेगाना</th>
-                    </tr>
-                </thead>
-                <tbody id="applicantList">
-                    <!-- Applicants data will be inserted here -->
-                </tbody>
-            </table>
+            <!-- Application List -->
+            <div class="col-md-6">
+                <h4>बुप्पानको लागि प्राप्त आवेदन सूची</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>आवेदक ID</th>
+                                <th>नाम</th>
+                                <th>ठेगाना</th>
+                            </tr>
+                        </thead>
+                        <tbody id="applicantList">
+                            <!-- Applicants data will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
         <!-- Lucky Draw Section -->
         <div class="text-center my-4">
             <button id="drawBtn" class="btn btn-primary btn-lg">लकी ड्र सुरु गर्नुहोस्</button>
-            <p id="drawStatus" class="draw-area mt-3">लकी ड्र को लागि तयार हुनुस्</p>
+            <p id="drawStatus" class="draw-area mt-3" style="font-size: 1.5em;">लकी ड्र को लागि तयार हुनुस्</p>
         </div>
 
         <!-- Result Table -->
-        <table class="table table-bordered table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>स्टल नम्बर</th>
-                    <th>आवेदक ID</th>
-                    <th>आवेदक नाम</th>
-                    <th class="d-none d-print-table-cell">Signature</th> <!-- Signature Column -->
-                </tr>
-            </thead>
-            <tbody id="resultTable">
-                <!-- Table rows will be appended here -->
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>स्टल नम्बर</th>
+                        <th>आवेदक ID</th>
+                        <th>आवेदक नाम</th>
+                        <th class="d-none d-print-table-cell">Signature</th> <!-- Signature Column -->
+                    </tr>
+                </thead>
+                <tbody id="resultTable">
+                    <!-- Table rows will be appended here -->
+                </tbody>
+            </table>
+        </div>
 
         <!-- Print Button -->
         <div class="text-right my-4">
@@ -141,37 +154,308 @@
     <!-- Toast Notification -->
     <div id="toast" class="toast">बधाई छ! <span id="toastMessage"></span></div>
 
-
-
     <style>
-        .draw-area {
-            font-size: 2rem;
-            color: blue;
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            border-bottom: 1px solid #aaa;
+            padding: 16px 0;
+        }
+
+        .btn {
+            align-items: center;
+            appearance: none;
+            background-color: #FCFCFD;
+            border-radius: 4px;
+            border-width: 0;
+            box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+            box-sizing: border-box;
+            color: #36395A;
+            cursor: pointer;
+            display: inline-flex;
+            height: 52px;
+            justify-content: center;
+            line-height: 1;
+            list-style: none;
+            overflow: hidden;
+            padding-left: 26px;
+            padding-right: 26px;
+            position: relative;
+            text-align: left;
+            text-decoration: none;
+            transition: box-shadow .15s, transform .15s;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+            will-change: box-shadow, transform;
+            font-size: 22px;
             font-weight: bold;
         }
 
-        .toast {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            min-width: 300px;
-            background-color: #28a745;
-            color: white;
-            border-radius: 10px;
-            padding: 20px;
-            opacity: 0.9;
-            z-index: 9999;
-            display: none;
-            font-size: 1.2rem;
+        .blue-btn {
+            box-shadow: 0 0 0 1px #a70e0b inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 5px 0 0 #890402, 0 2px 2px 1px rgba(0, 0, 0, 0.5);
+            background-color: #a70e0b;
+            color: #fff;
+            margin-top: 20px;
         }
 
-        @media print {
-            .d-none {
-                display: table-cell !important;
+        .dwnload {
+            box-shadow: 0 0 0 1px #a70e0b inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 51px 0 0 #890402, 0 2px 2px 1px rgba(0, 0, 0, 0.5);
+            background-color: #a70e0b;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .logo {
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1.5em;
+            color: #1744a0;
+        }
+
+        .logo img {
+            width: 250px;
+        }
+
+        .photo-frame {
+            width: 75%;
+            border: 1px dashed #aaa;
+            padding: 8px 8px 2px 8px;
+            background: #fff;
+            margin: 0 auto;
+            box-sizing: border-box;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .btn:active {
+            box-shadow: 0 0 0 1px #a70e0b inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 1px 0 0 #890402, 0 2px 2px 1px rgba(0, 0, 0, 0.5);
+        }
+
+        .info {
+            margin-top: 10px !important;
+        }
+
+        main {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #fff;
+            padding-bottom: 40px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        input, button {
+            display: block;
+            margin: 10px auto;
+        }
+
+        .inputfile {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .inputfile + label, .download-btn {
+            border-radius: 2px;
+            margin-bottom: 16px;
+            display: inline-block;
+            padding: 10px 30px;
+            font-weight: 700;
+            vertical-align: middle;
+            color: white;
+            box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 5px 0 0 #4D5BBE, 0 2px 2px 1px rgba(0, 0, 0, 0.5);
+            background-color: #4274D7;
+            -webkit-tap-highlight-color: transparent;
+            font-size: 22px;
+        }
+
+        .upload-img {
+            display: block;
+            text-align: center;
+        }
+
+        .inputfile:focus + label,
+        .inputfile + label:hover,
+        .download-btn:hover {
+            box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 1px 0 0 #4D5BBE, 0 2px 2px 1px rgba(0, 0, 0, 0.5);
+        }
+
+        .inputfile + label,
+        .download-btn {
+            cursor: pointer; /* "hand" cursor */
+        }
+
+        .inputfile:focus + label {
+            outline: 1px dotted #000;
+            outline: -webkit-focus-ring-color auto 5px;
+        }
+
+        .description {
+            margin: 0 26px;
+            background: #f3f3f3;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .disabled {
+            opacity: 0;
+            cursor: not-allowed;
+        }
+
+        .overlay:after {
+            background: rgba(0,0,0,0.7);
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            left: 0;
+        }
+
+        .overlay {
+            position: relative;
+        }
+
+        .loader {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            border: 3px solid;
+            border-color: #FFF #FFF transparent transparent;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            z-index: 9;
+        }
+
+        .loader::after,
+        .loader::before {
+            content: '';  
+            box-sizing: border-box;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            border: 3px solid;
+            border-color: transparent transparent #FF3D00 #FF3D00;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            box-sizing: border-box;
+            animation: rotationBack 0.5s linear infinite;
+            transform-origin: center center;
+        }
+
+        .loader::before {
+            width: 32px;
+            height: 32px;
+            border-color: #FFF #FFF transparent transparent;
+            animation: rotation 1.5s linear infinite;
+        }
+
+        #overlay-img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+        }
+
+        .madeBy {
+            text-align: center;
+            margin: 15px auto 10px auto;
+        }
+
+        /* Company Logo */
+        section.company-logo ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        section.company-logo ul li img {
+            width: 200px;
+        }
+
+        section.company-logo h2 {
+            padding: 0 0 0 40px;
+        }
+
+        section.company-logo .company-logo-animation {
+            background-color: #fff;
+            pointer-events: none;
+            background: url(../company-logo.png) repeat-x;
+            background-size: auto 100px;
+            width: 100%;
+            height: 100px;
+            animation: loop-slide 50s infinite linear 1s both;
+            margin-top: 30px;
+        }
+
+        @keyframes loop-slide {
+            0% {
+                background-position: 0 0
             }
-            .footer {
-                display: block !important;
+
+            to {
+                background-position: -5695px 0
             }
+        }
+
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotationBack {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(-360deg);
+            }
+        }
+
+        .toast {
+            display: none;
+            position: fixed;
+            bottom: 80px; /* Adjusted to avoid overlap with the button */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 1.5em;
+            z-index: 1000;
         }
     </style>
 
@@ -187,7 +471,7 @@
             { id: 11, name: 'Forex Japan Remit', address: '東京都大田区西蒲田7-29-5' },
             { id: 2, name: 'TRICO JAPAN', address: 'Tokyo' },
             { id: 9, name: 'EDUCATIONAL BOOTH', address: 'Tokyo' },
-            { id: 5, name: 'GTNモバイル新大久保支店', address: '東京都新宿区大久保１丁目१५−१५' }
+            { id: 5, name: 'GTNモバイル新大久保支店', address: '東京都新宿区大久保１丁目１５−１５' }
         ];
         const stalls = Array.from({ length: 15 }, (_, i) => 'B' + (i + 1)); // स्टल नम्बर B1 ~ B15
         let currentStall = 0;
@@ -270,7 +554,13 @@
     </script>
 </body>
 
-<footer class="footer text-center mt-4">
-    Powered by: Ramesh Giri | NRNA CHIBA कार्यवाहक संयोजक
-</footer>
+<section class="company-logo" style="border-bottom: 1px solid rgb(170, 170, 170); padding: 30px;">
+    <!-- <h2>फेस्टिवल सपोर्टर्स</h2> -->
+    <!-- <div class="description info">
+        NRNA चिबा को नेपाल फेस्टिवल २०२४ लाई सफल बनाउन विभिन्न संस्थाबाट हामीलाई सहयोग र सपोर्ट गर्नु भएकोमा हामी एनआरएनए चिबा परिवार धन्यवाद प्रकट गर्दछौं।
+        यस चिबा नेपाल फेस्टिवल २०२४ लाई सबै जना मिलि भव्य र सभ्यका साथ सफल बनाऔं।
+    </div> -->
+    <div class="company-logo-animation"></div>
+</section>
+<div class="madeBy">Powered by <a href="#" target="_blank">RAMESH GIRI</a>  NRNA CHIBA कार्यवाहक संयोजक <a href="#" target="_blank"></a></div>
 </html>
