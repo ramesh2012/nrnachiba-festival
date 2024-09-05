@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ne">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>एनआरएनए चिबा फेस्टिवल स्टल व्यवस्थापन २०२४</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="एनआरएनए चिबा फेस्टिवल स्टल व्यवस्थापन २०२४">
+    <meta property="og:description" content="यो एनआरएनए चिबा को फेस्टिवल को स्टल व्यवस्थापन टुल हो। तपाईंले आफ्नो मनपर्ने स्टल चयन गरेर फेस्टिवललाई सफल बनाउन सक्नुहुन्छ।">
+    <meta property="og:image" content="https://nrnachiba.com/festival/thumbnail.png">
+    <meta property="og:url" content="https://nrnachiba.com/stallmanagement/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="एनआरएनए चिबा फेस्टिवल स्टल व्यवस्थापन २०२४">
+    <meta name="twitter:description" content="यो एनआरएनए चिबा को फेस्टिवल को स्टल व्यवस्थापन टुल हो। तपाईंले आफ्नो मनपर्ने स्टल चयन गरेर फेस्टिवललाई सफल बनाउन सक्नुहुन्छ।">
+    <meta name="twitter:image" content="https://nrnachiba.com/festival/thumbnail.png">
+    <meta name="twitter:url" content="https://nrnachiba.com/festival/">
+
+    <!-- Other meta tags -->
+    <meta name="description" content="एनआरएनए चिबा फेस्टिवल स्टल व्यवस्थापन टुल स्टल र आवेदकहरूलाई व्यवस्थित गर्नको लागि।">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">एनआरएनए चिबा फेस्टिवल स्टल व्यवस्थापन २०२४</h1>
+
+        <!-- Restaurant List -->
+        <div class="mt-4">
+            <h2>रेष्टुरेन्टको लागि प्राप्त आवेदन सूची</h2>
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>आवेदक ID</th>
+                        <th>नाम</th>
+                        <th>स्टल नं.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Newari Kitchen</td>
+                        <td>R-1</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Nawadurga Restaurant</td>
+                        <td>R-2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>NepHub Restaurant</td>
+                        <td>R-3</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Nan Beats</td>
+                        <td>R-4</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Vintage Dining & Bar</td>
+                        <td>R-5</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Spice Plaza</td>
+                        <td>R-6</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Pasa Dining</td>
+                        <td>R-7</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Bhintuna Dining</td>
+                        <td>R-8</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Application List -->
+        <div class="mt-4">
+            <h2>बुप्पानको लागि प्राप्त आवेदन सूची</h2>
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>आवेदक ID</th>
+                        <th>नाम</th>
+                        <th>ठेगाना</th>
+                    </tr>
+                </thead>
+                <tbody id="applicantList">
+                    <!-- Applicants data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Lucky Draw Section -->
+        <div class="text-center my-4">
+            <button id="drawBtn" class="btn btn-primary btn-lg">लकी ड्र सुरु गर्नुहोस्</button>
+            <p id="drawStatus" class="draw-area mt-3">लकी ड्र को लागि तयार हुनुस्</p>
+        </div>
+
+        <!-- Result Table -->
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>स्टल नम्बर</th>
+                    <th>आवेदक ID</th>
+                    <th>आवेदक नाम</th>
+                    <th class="d-none d-print-table-cell">Signature</th> <!-- Signature Column -->
+                </tr>
+            </thead>
+            <tbody id="resultTable">
+                <!-- Table rows will be appended here -->
+            </tbody>
+        </table>
+
+        <!-- Print Button -->
+        <div class="text-right my-4">
+            <button id="printBtn" class="btn btn-secondary btn-lg d-none">Print</button>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">बधाई छ! <span id="toastMessage"></span></div>
+
+
+
+    <style>
+        .draw-area {
+            font-size: 2rem;
+            color: blue;
+            font-weight: bold;
+        }
+
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            min-width: 300px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            opacity: 0.9;
+            z-index: 9999;
+            display: none;
+            font-size: 1.2rem;
+        }
+
+        @media print {
+            .d-none {
+                display: table-cell !important;
+            }
+            .footer {
+                display: block !important;
+            }
+        }
+    </style>
+
+    <script>
+        // आवेदकहरूको जानकारी
+        const applicants = [
+            { id: 4, name: 'FOOD LINER', address: '千葉県鎌ケ谷市中沢265ー1' },
+            { id: 1, name: 'CITY EXPRESS MONEY TRANSFER JAPAN', address: 'Hyakunin-cho, Shinjuku-ku, Tokyo' },
+            { id: 6, name: 'KYODAI REMITTANCE', address: 'Shinjuku-Ku, Hyakunincho 2-4-8' },
+            { id: 3, name: 'QS REMIT', address: '東京都新宿区百人町2-20-2-201' },
+            { id: 10, name: 'JAPAN REMIT (JRF)', address: '新宿区百人町2-4-5-3F' },
+            { id: 15, name: 'SMILES REMITTANCE', address: '東京都千代田区紀尾井町3-6' },
+            { id: 11, name: 'Forex Japan Remit', address: '東京都大田区西蒲田7-29-5' },
+            { id: 2, name: 'TRICO JAPAN', address: 'Tokyo' },
+            { id: 9, name: 'EDUCATIONAL BOOTH', address: 'Tokyo' },
+            { id: 5, name: 'GTNモバイル新大久保支店', address: '東京都新宿区大久保１丁目१५−१५' }
+        ];
+        const stalls = Array.from({ length: 15 }, (_, i) => 'B' + (i + 1)); // स्टल नम्बर B1 ~ B15
+        let currentStall = 0;
+        let remainingApplicants = [...applicants];
+        const drawStatus = document.getElementById('drawStatus');
+        const resultTable = document.getElementById('resultTable');
+        const drawBtn = document.getElementById('drawBtn');
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toastMessage');
+        const printBtn = document.getElementById('printBtn');
+
+        // आवेदकहरूको सूची देखाउने
+        function displayApplicants() {
+            const applicantList = document.getElementById('applicantList');
+            applicants.forEach(applicant => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${applicant.id}</td><td>${applicant.name}</td><td>${applicant.address}</td>`;
+                applicantList.appendChild(row);
+            });
+        }
+
+        // टोस्ट देखाउने फङ्सन
+        function showToast(message) {
+            toastMessage.textContent = message;
+            toast.style.display = 'block';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 15000); // १५ सेकेन्ड पछि आफै हराउने
+        }
+
+        // स्टलमा आवेदकलाई र्यान्डम्ली असाइन गर्ने फङ्सन
+        function drawLuckyStall() {
+            if (currentStall >= stalls.length || remainingApplicants.length === 0) {
+                drawStatus.textContent = 'सबै स्टलहरू असाइन भइसकेका छन्!';
+                drawBtn.disabled = true;
+                printBtn.classList.remove('d-none'); // Show print button
+                return;
+            }
+
+            drawStatus.textContent = 'चयन गर्दै...';
+            drawBtn.disabled = true; // चयन नभएसम्म बटनलाई निष्क्रिय बनाउने
+            let randomIndex;
+            let randomApplicant;
+            let shuffleSpeed = 200; // प्रारम्भिक शफल स्पीड (२०० मिलिसेकेन्ड)
+
+            const interval = setInterval(() => {
+                randomIndex = Math.floor(Math.random() * remainingApplicants.length);
+                randomApplicant = remainingApplicants[randomIndex];
+                drawStatus.textContent = `चयन गर्दै: ${randomApplicant.name}`;
+                shuffleSpeed *= 0.9; // क्रमशः स्पीड बढ्दै जाने
+            }, shuffleSpeed);
+
+            setTimeout(() => {
+                clearInterval(interval);
+                const selectedApplicant = remainingApplicants.splice(randomIndex, 1)[0]; // चयन गरिएको आवेदकलाई सूचीबाट हटाउने
+
+                // परिणाम तालिकामा थप्ने
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${stalls[currentStall]}</td><td>${selectedApplicant.id}</td><td>${selectedApplicant.name}</td><td class="d-none d-print-table-cell"></td>`;
+                resultTable.appendChild(row);
+
+                // टोस्टमा सूचित गर्ने
+                showToast(`बधाई छ ${selectedApplicant.name} लाई स्टल ${stalls[currentStall]} को लागि!`);
+
+                currentStall++;
+                drawBtn.disabled = false; // चयन भएपछि बटनलाई सक्रिय बनाउने
+            }, 3000); // १० सेकेन्ड शफल
+        }
+
+        // प्रारम्भिक सेटअप
+        displayApplicants();
+
+        drawBtn.addEventListener('click', () => {
+            drawLuckyStall();
+        });
+
+        printBtn.addEventListener('click', () => {
+            window.print();
+        });
+    </script>
+</body>
+
+<footer class="footer text-center mt-4">
+    Powered by: Ramesh Giri | NRNA CHIBA कार्यवाहक संयोजक
+</footer>
+</html>
