@@ -35,124 +35,8 @@
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="NRNA Chiba Festival Logo" />
-        </div>
-    </header>
-    <div class="container">
-        <h1 class="text-center my-4">एनआरएनए चिबा फेस्टिवल स्टल व्यवस्थापन २०२४</h1>
-
-        <div class="row">
-            <!-- Restaurant List -->
-            <div class="col-md-6">
-                <h4>रेष्टुरेन्टको लागि प्राप्त आवेदन सूची र स्टल नम्बर</h4>
-                <div class="table-responsive">
-                    <table class="table table-bordered table-striped">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>आवेदक ID</th>
-                                <th>नाम</th>
-                                <th>स्टल नं.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Newari Kitchen</td>
-                                <td>R-1</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Nawadurga Restaurant</td>
-                                <td>R-2</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>NepHub Restaurant</td>
-                                <td>R-3</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Nan Beats</td>
-                                <td>R-4</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Vintage Dining & Bar</td>
-                                <td>R-5</td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>Spice Plaza</td>
-                                <td>R-6</td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>Pasa Dining</td>
-                                <td>R-7</td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>Bhintuna Dining</td>
-                                <td>R-8</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Application List -->
-            <div class="col-md-6">
-                <h4>बुप्पानको लागि प्राप्त आवेदन सूची</h4>
-                <div class="table-responsive">
-                    <table class="table table-bordered table-striped">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>आवेदक ID</th>
-                                <th>नाम</th>
-                                <th>ठेगाना</th>
-                            </tr>
-                        </thead>
-                        <tbody id="applicantList">
-                            <!-- Applicants data will be inserted here -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- Lucky Draw Section -->
-        <div class="text-center my-4">
-            <button id="drawBtn" class="btn btn-primary btn-lg">स्टल नम्बर रोज्न को लागि लकी ड्र सुरु गर्नुहोस्</button>
-            <div id="toast" class="toast">Congratulations! <span id="toastMessage"></span></div>
-            <p id="drawStatus" class="draw-area mt-3" style="font-size: 1.5em;">लकी ड्र को लागि तयार हुनुस्</p>
-        </div>
-
-        <!-- Result Table -->
-        <div class="table-responsive">
-            <table class="table table-bordered table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>स्टल नम्बर</th>
-                        <th>आवेदक ID</th>
-                        <th>आवेदक नाम</th>
-                        <th class="d-none d-print-table-cell">Signature</th> <!-- Signature Column -->
-                    </tr>
-                </thead>
-                <tbody id="resultTable">
-                    <!-- Table rows will be appended here -->
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Print Button -->
-        <div class="text-right my-4">
-            <button id="printBtn" class="btn btn-secondary btn-lg d-none">Print</button>
-        </div>
-    </div>
-
     <style>
+    
         body {
             background-color: #f0f0f0;
             margin: 0;
@@ -162,6 +46,36 @@
         header {
             border-bottom: 1px solid #aaa;
             padding: 16px 0;
+        }
+
+        .h1, h1 {
+            text-align: center;
+            font-size: 2em !important;
+            color: #383d41 !important
+        }
+
+        .h4, h4 {
+            font-size: 1rem;
+            text-align: center;
+            color: #343a40;
+        }
+        
+        .row {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin-right: -33px;
+            margin-left: -33px;
+            margin-top: 60px;
+        }
+
+        .table .thead-dark th {
+            background-color: #1844a0 !important;
+        }
+
+        .table .thead-dark th {
+            border-color: #fff;
         }
 
         .btn {
@@ -193,6 +107,25 @@
             will-change: box-shadow, transform;
             font-size: 22px;
             font-weight: bold;
+            border-radius: 2px;
+            margin-bottom: 16px;
+            display: inline-block;
+            padding: 10px 30px;
+            font-weight: 700;
+            vertical-align: middle;
+            color: white;
+            box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 5px 0 0 #4D5BBE, 0 2px 2px 1px rgba(0, 0, 0, 0.5);
+            background-color: #4274D7;
+            -webkit-tap-highlight-color: transparent;
+            font-size: 22px;
+        }
+        
+        .btn:hover {
+            box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 1px 0 0 #4D5BBE, 0 2px 2px 1px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn {
+            cursor: pointer; /* "hand" cursor */
         }
 
         .blue-btn {
@@ -256,54 +189,7 @@
             text-align: center;
         }
 
-        input, button {
-            display: block;
-            margin: 10px auto;
-        }
-
-        .inputfile {
-            width: 0.1px;
-            height: 0.1px;
-            opacity: 0;
-            overflow: hidden;
-            position: absolute;
-            z-index: -1;
-        }
-
-        .inputfile + label, .download-btn {
-            border-radius: 2px;
-            margin-bottom: 16px;
-            display: inline-block;
-            padding: 10px 30px;
-            font-weight: 700;
-            vertical-align: middle;
-            color: white;
-            box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 5px 0 0 #4D5BBE, 0 2px 2px 1px rgba(0, 0, 0, 0.5);
-            background-color: #4274D7;
-            -webkit-tap-highlight-color: transparent;
-            font-size: 22px;
-        }
-
-        .upload-img {
-            display: block;
-            text-align: center;
-        }
-
-        .inputfile:focus + label,
-        .inputfile + label:hover,
-        .download-btn:hover {
-            box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 1px 0 0 #4D5BBE, 0 2px 2px 1px rgba(0, 0, 0, 0.5);
-        }
-
-        .inputfile + label,
-        .download-btn {
-            cursor: pointer; /* "hand" cursor */
-        }
-
-        .inputfile:focus + label {
-            outline: 1px dotted #000;
-            outline: -webkit-focus-ring-color auto 5px;
-        }
+        
 
         .description {
             margin: 0 26px;
@@ -457,104 +343,225 @@
             font-size: 1.2em; /* Text made bigger */
     }
     </style>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="NRNA Chiba Festival Logo" />
+        </div>
+    </header>
+    <div class="container">
+        <h1 class="text-center my-4">एनआरएनए चिबा फेस्टिवल स्टल व्यवस्थापन समिति २०२४</h1>
 
-    <script>
-        // आवेदकहरूको जानकारी
-        const applicants = [
-            { id: 4, name: 'FOOD LINER', address: '千葉県鎌ケ谷市中沢265ー1' },
-            { id: 1, name: 'CITY EXPRESS MONEY TRANSFER JAPAN', address: 'Hyakunin-cho, Shinjuku-ku, Tokyo' },
-            { id: 6, name: 'KYODAI REMITTANCE', address: 'Shinjuku-Ku, Hyakunincho 2-4-8' },
-            { id: 3, name: 'QS REMIT', address: '東京都新宿区百人町2-20-2-201' },
-            { id: 10, name: 'JAPAN REMIT (JRF)', address: '新宿区百人町2-4-5-3F' },
-            { id: 15, name: 'SMILES REMITTANCE', address: '東京都千代田区紀尾井町3-6' },
-            { id: 11, name: 'Forex Japan Remit', address: '東京都大田区西蒲田7-29-5' },
-            { id: 2, name: 'TRICO JAPAN', address: 'Tokyo' },
-            { id: 9, name: 'EDUCATIONAL BOOTH', address: 'Tokyo' },
-            { id: 5, name: 'GTNモバイル新大久保支店', address: '東京都新宿区大久保１丁目１５−１５' }
-        ];
-        const stalls = Array.from({ length: 15 }, (_, i) => 'B-' + (i + 1)); // स्टल नम्बर B1 ~ B15
-        let currentStall = 0;
-        let remainingApplicants = [...applicants];
-        const drawStatus = document.getElementById('drawStatus');
-        const resultTable = document.getElementById('resultTable');
-        const drawBtn = document.getElementById('drawBtn');
-        const toast = document.getElementById('toast');
-        const toastMessage = document.getElementById('toastMessage');
-        const printBtn = document.getElementById('printBtn');
+        <div class="row">
+            <!-- Restaurant List -->
+            <div class="col-md-6">
+                <h4>रेष्टुरेन्टको लागि प्राप्त आवेदन सूची र स्टल नम्बर</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>क्र.स.</th>
+                                <th>नाम</th>
+                                <th>स्टल नं.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Newari Kitchen</td>
+                                <td>R-1</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Nawadurga Restaurant</td>
+                                <td>R-2</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>NepHub Restaurant</td>
+                                <td>R-3</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Nan Beats</td>
+                                <td>R-4</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Vintage Dining & Bar</td>
+                                <td>R-5</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Spice Plaza</td>
+                                <td>R-6</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Pasa Dining</td>
+                                <td>R-7</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Bhintuna Dining</td>
+                                <td>R-8</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-        // आवेदकहरूको सूची देखाउने
-        function displayApplicants() {
-            const applicantList = document.getElementById('applicantList');
-            applicants.forEach(applicant => {
-                const row = document.createElement('tr');
-                row.innerHTML = `<td>${applicant.id}</td><td>${applicant.name}</td><td>${applicant.address}</td>`;
-                applicantList.appendChild(row);
-            });
-        }
+            <!-- Application List -->
+            <div class="col-md-6">
+                <h4>बुप्पानको लागि प्राप्त आवेदन सूची</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>क्र.स</th>
+                                <th>नाम</th>
+                                <th>ठेगाना</th>
+                            </tr>
+                        </thead>
+                        <tbody id="applicantList">
+                            <!-- Applicants data will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
-        // टोस्ट देखाउने फङ्सन
-        function showToast(message) {
-            toastMessage.textContent = message;
-            toast.style.display = 'block';
-            setTimeout(() => {
-                toast.style.display = 'none';
-            }, 15000); // १५ सेकेन्ड पछि आफै हराउने
-        }
+        <section class="company-logo" style="border-bottom: 1px solid rgb(170, 170, 170); padding: 10px;"></section>
+        <h4 class="text-center my-4">फेस्टिवलको स्टल रोज्नको लागि तलको बटन क्लिक गर्नुहोस्</h4>
+    
 
-        // स्टलमा आवेदकलाई र्यान्डम्ली असाइन गर्ने फङ्सन
-        function drawLuckyStall() {
-            if (currentStall >= stalls.length || remainingApplicants.length === 0) {
-                drawStatus.textContent = 'सबै स्टलहरू असाइन भइसकेका छन्!';
-                drawBtn.disabled = true;
-                printBtn.classList.remove('d-none'); // Show print button
-                return;
-            }
+        <!-- Lucky Draw Section -->    
+        <div class="text-center my-4">
+            <button id="drawBtn" class="btn btn-primary btn-lg">स्टल नम्बर रोज्न को लागि लकी ड्र सुरु गर्नुहोस्</button>
+            <div id="toast" class="toast">Congratulations! <span id="toastMessage"></span></div>
+            <p id="drawStatus" class="draw-area mt-3" style="font-size: 2em;"></p>
+        </div>
 
-            drawStatus.textContent = 'Laoding Data...';
-            drawBtn.disabled = true; // चयन नभएसम्म बटनलाई निष्क्रिय बनाउने
-            let randomIndex;
-            let randomApplicant;
-            let shuffleSpeed = 100; // प्रारम्भिक शफल स्पीड (२०० मिलिसेकेन्ड)
+        <!-- Result Table -->
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>स्टल नम्बर</th>
+                        <th>आवेदक ID</th>
+                        <th>आवेदक नाम</th>
+                        <th class="d-none d-print-table-cell">Signature</th> <!-- Signature Column -->
+                    </tr>
+                </thead>
+                <tbody id="resultTable">
+                    <!-- Table rows will be appended here -->
+                </tbody>
+            </table>
+        </div>
 
-            const interval = setInterval(() => {
-                randomIndex = Math.floor(Math.random() * remainingApplicants.length);
-                randomApplicant = remainingApplicants[randomIndex];
-                drawStatus.textContent = `Selecting: ${randomApplicant.name}`;
-                shuffleSpeed *= 0.9; // क्रमशः स्पीड बढ्दै जाने
-            }, shuffleSpeed);
+        <!-- Print Button -->
+        <div class="text-right my-4">
+            <button id="printBtn" class="btn btn-secondary btn-lg d-none">Print</button>
+        </div>
+    </div>
 
-            setTimeout(() => {
-                clearInterval(interval);
-                const selectedApplicant = remainingApplicants.splice(randomIndex, 1)[0]; // चयन गरिएको आवेदकलाई सूचीबाट हटाउने
+    <section class="company-logo" style="border-bottom: 1px solid rgb(170, 170, 170); padding: 10px;"></section>
+    <div class="madeBy">Powered by <a href="#" target="_blank">RAMESH GIRI</a>  NRNA CHIBA उपसंयोजक <a href="#" target="_blank"></a></div>
 
-                // परिणाम तालिकामा थप्ने
-                const row = document.createElement('tr');
-                row.innerHTML = `<td>${stalls[currentStall]}</td><td>${selectedApplicant.id}</td><td>${selectedApplicant.name}</td><td class="d-none d-print-table-cell"></td>`;
-                resultTable.appendChild(row);
-
-                // टोस्टमा सूचित गर्ने
-                showToast(`बधाई छ ${selectedApplicant.name} कम्पनी लाई स्टल ${stalls[currentStall]} प्राप्त गर्नु भएको मा!`);
-
-                currentStall++;
-                drawBtn.disabled = false; // चयन भएपछि बटनलाई सक्रिय बनाउने
-            }, 3000); // १० सेकेन्ड शफल
-        }
-
-        // प्रारम्भिक सेटअप
-        displayApplicants();
-
-        drawBtn.addEventListener('click', () => {
-            drawLuckyStall();
-        });
-
-        printBtn.addEventListener('click', () => {
-            window.print();
-        });
-    </script>
 </body>
 
-<section class="company-logo" style="border-bottom: 1px solid rgb(170, 170, 170); padding: 30px;">
-    <div class="company-logo-animation"></div>
-</section>
-<div class="madeBy">Powered by <a href="#" target="_blank">RAMESH GIRI</a>  NRNA CHIBA उपसंयोजक <a href="#" target="_blank"></a></div>
+<script>
+    // आवेदकहरूको जानकारी
+    const applicants = [
+        { id: 1, name: 'FOOD LINER', address: '千葉県鎌ケ谷市中沢265ー1' },
+        { id: 2, name: 'CITY EXPRESS MONEY TRANSFER JAPAN', address: 'Hyakunin-cho, Shinjuku-ku, Tokyo' },
+        { id: 3, name: 'KYODAI REMITTANCE', address: 'Shinjuku-Ku, Hyakunincho 2-4-8' },
+        { id: 4, name: 'QS REMIT', address: '東京都新宿区百人町2-20-2-201' },
+        { id: 5, name: 'JAPAN REMIT (JRF)', address: '新宿区百人町2-4-5-3F' },
+        { id: 6, name: 'SMILES REMITTANCE', address: '東京都千代田区紀尾井町3-6' },
+        { id: 7, name: 'Forex Japan Remit', address: '東京都大田区西蒲田7-29-5' },
+        { id: 8, name: 'TRICO JAPAN', address: 'Tokyo' },
+        { id: 9, name: 'EDUCATIONAL BOOTH', address: 'Tokyo' },
+        { id: 10, name: 'GTNモバイル新大久保支店', address: '東京都新宿区大久保１丁目１５−１５' }
+    ];
+    const stalls = Array.from({ length: 15 }, (_, i) => 'B-' + (i + 1)); // स्टल नम्बर B1 ~ B15
+    let currentStall = 0;
+    let remainingApplicants = [...applicants];
+    const drawStatus = document.getElementById('drawStatus');
+    const resultTable = document.getElementById('resultTable');
+    const drawBtn = document.getElementById('drawBtn');
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toastMessage');
+    const printBtn = document.getElementById('printBtn');
+
+    // आवेदकहरूको सूची देखाउने
+    function displayApplicants() {
+        const applicantList = document.getElementById('applicantList');
+        applicants.forEach(applicant => {
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${applicant.id}</td><td>${applicant.name}</td><td>${applicant.address}</td>`;
+            applicantList.appendChild(row);
+        });
+    }
+
+    // टोस्ट देखाउने फङ्सन
+    function showToast(message) {
+        toastMessage.textContent = message;
+        toast.style.display = 'block';
+        setTimeout(() => {
+            toast.style.display = 'none';
+        }, 5000); // ५ सेकेन्ड पछि आफै हराउने
+    }
+
+    // स्टलमा आवेदकलाई र्यान्डम्ली असाइन गर्ने फङ्सन
+    function drawLuckyStall() {
+        if (currentStall >= stalls.length || remainingApplicants.length === 0) {
+            drawStatus.textContent = 'सबै स्टलहरू बाडफाड भइसकेका छन्!';
+            drawBtn.disabled = true;
+            printBtn.classList.remove('d-none'); // Show print button
+            return;
+        }
+
+        drawStatus.textContent = 'Laoding Data...';
+        drawBtn.disabled = true; // चयन नभएसम्म बटनलाई निष्क्रिय बनाउने
+        let randomIndex;
+        let randomApplicant;
+        let shuffleSpeed = 100; // प्रारम्भिक शफल स्पीड (२०० मिलिसेकेन्ड)
+
+        const interval = setInterval(() => {
+            randomIndex = Math.floor(Math.random() * remainingApplicants.length);
+            randomApplicant = remainingApplicants[randomIndex];
+            drawStatus.textContent = ` ${randomApplicant.name}`;
+            shuffleSpeed *= 0.5; // क्रमशः स्पीड बढ्दै जाने
+        }, shuffleSpeed);
+
+        setTimeout(() => {
+            clearInterval(interval);
+            const selectedApplicant = remainingApplicants.splice(randomIndex, 1)[0]; // चयन गरिएको आवेदकलाई सूचीबाट हटाउने
+
+            // परिणाम तालिकामा थप्ने
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${stalls[currentStall]}</td><td>${selectedApplicant.id}</td><td>${selectedApplicant.name}</td><td class="d-none d-print-table-cell"></td>`;
+            resultTable.appendChild(row);
+
+            // टोस्टमा सूचित गर्ने
+            showToast(`बधाई छ ${selectedApplicant.name} कम्पनी लाई स्टल ${stalls[currentStall]} प्राप्त गर्नु भएको मा!`);
+
+            currentStall++;
+            drawBtn.disabled = false; // चयन भएपछि बटनलाई सक्रिय बनाउने
+        }, 3000); // १० सेकेन्ड शफल
+    }
+
+    // प्रारम्भिक सेटअप
+    displayApplicants();
+
+    drawBtn.addEventListener('click', () => {
+        drawLuckyStall();
+    });
+
+    printBtn.addEventListener('click', () => {
+        window.print();
+    });
+</script>
+
+
 </html>
