@@ -46,7 +46,7 @@
         <div class="row">
             <!-- Restaurant List -->
             <div class="col-md-6">
-                <h4>रेष्टुरेन्टको लागि प्राप्त आवेदन सूची</h4>
+                <h4>रेष्टुरेन्टको लागि प्राप्त आवेदन सूची र स्टल नम्बर</h4>
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped">
                         <thead class="thead-dark">
@@ -124,7 +124,8 @@
 
         <!-- Lucky Draw Section -->
         <div class="text-center my-4">
-            <button id="drawBtn" class="btn btn-primary btn-lg">लकी ड्र सुरु गर्नुहोस्</button>
+            <button id="drawBtn" class="btn btn-primary btn-lg">स्टल नम्बर रोज्न को लागि लकी ड्र सुरु गर्नुहोस्</button>
+            <div id="toast" class="toast">Congratulations! <span id="toastMessage"></span></div>
             <p id="drawStatus" class="draw-area mt-3" style="font-size: 1.5em;">लकी ड्र को लागि तयार हुनुस्</p>
         </div>
 
@@ -150,9 +151,6 @@
             <button id="printBtn" class="btn btn-secondary btn-lg d-none">Print</button>
         </div>
     </div>
-
-    <!-- Toast Notification -->
-    <div id="toast" class="toast">बधाई छ! <span id="toastMessage"></span></div>
 
     <style>
         body {
@@ -445,18 +443,19 @@
         }
 
         .toast {
-            display: none;
             position: fixed;
-            bottom: 80px; /* Adjusted to avoid overlap with the button */
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #333;
-            color: #fff;
-            padding: 16px;
-            border-radius: 8px;
-            font-size: 1.5em;
-            z-index: 1000;
-        }
+            left: 20px;
+            bottom: 20px;
+            min-width: 700px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            padding: 10px;
+            opacity: 0.9;
+            z-index: 9999;
+            display: none;
+            font-size: 1.2em; /* Text made bigger */
+    }
     </style>
 
     <script>
@@ -473,7 +472,7 @@
             { id: 9, name: 'EDUCATIONAL BOOTH', address: 'Tokyo' },
             { id: 5, name: 'GTNモバイル新大久保支店', address: '東京都新宿区大久保１丁目１５−１５' }
         ];
-        const stalls = Array.from({ length: 15 }, (_, i) => 'B' + (i + 1)); // स्टल नम्बर B1 ~ B15
+        const stalls = Array.from({ length: 15 }, (_, i) => 'B-' + (i + 1)); // स्टल नम्बर B1 ~ B15
         let currentStall = 0;
         let remainingApplicants = [...applicants];
         const drawStatus = document.getElementById('drawStatus');
@@ -511,16 +510,16 @@
                 return;
             }
 
-            drawStatus.textContent = 'चयन गर्दै...';
+            drawStatus.textContent = 'Laoding Data...';
             drawBtn.disabled = true; // चयन नभएसम्म बटनलाई निष्क्रिय बनाउने
             let randomIndex;
             let randomApplicant;
-            let shuffleSpeed = 200; // प्रारम्भिक शफल स्पीड (२०० मिलिसेकेन्ड)
+            let shuffleSpeed = 100; // प्रारम्भिक शफल स्पीड (२०० मिलिसेकेन्ड)
 
             const interval = setInterval(() => {
                 randomIndex = Math.floor(Math.random() * remainingApplicants.length);
                 randomApplicant = remainingApplicants[randomIndex];
-                drawStatus.textContent = `चयन गर्दै: ${randomApplicant.name}`;
+                drawStatus.textContent = `Selecting: ${randomApplicant.name}`;
                 shuffleSpeed *= 0.9; // क्रमशः स्पीड बढ्दै जाने
             }, shuffleSpeed);
 
@@ -534,7 +533,7 @@
                 resultTable.appendChild(row);
 
                 // टोस्टमा सूचित गर्ने
-                showToast(`बधाई छ ${selectedApplicant.name} लाई स्टल ${stalls[currentStall]} को लागि!`);
+                showToast(`बधाई छ ${selectedApplicant.name} कम्पनी लाई स्टल ${stalls[currentStall]} प्राप्त गर्नु भएको मा!`);
 
                 currentStall++;
                 drawBtn.disabled = false; // चयन भएपछि बटनलाई सक्रिय बनाउने
@@ -555,12 +554,7 @@
 </body>
 
 <section class="company-logo" style="border-bottom: 1px solid rgb(170, 170, 170); padding: 30px;">
-    <!-- <h2>फेस्टिवल सपोर्टर्स</h2> -->
-    <!-- <div class="description info">
-        NRNA चिबा को नेपाल फेस्टिवल २०२४ लाई सफल बनाउन विभिन्न संस्थाबाट हामीलाई सहयोग र सपोर्ट गर्नु भएकोमा हामी एनआरएनए चिबा परिवार धन्यवाद प्रकट गर्दछौं।
-        यस चिबा नेपाल फेस्टिवल २०२४ लाई सबै जना मिलि भव्य र सभ्यका साथ सफल बनाऔं।
-    </div> -->
     <div class="company-logo-animation"></div>
 </section>
-<div class="madeBy">Powered by <a href="#" target="_blank">RAMESH GIRI</a>  NRNA CHIBA कार्यवाहक संयोजक <a href="#" target="_blank"></a></div>
+<div class="madeBy">Powered by <a href="#" target="_blank">RAMESH GIRI</a>  NRNA CHIBA उपसंयोजक <a href="#" target="_blank"></a></div>
 </html>
